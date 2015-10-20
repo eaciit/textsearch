@@ -1,6 +1,6 @@
 package textsearch
 
-mport (
+import (
 	"strings"
 )
 
@@ -38,15 +38,15 @@ func EncodeSoundex(word string) string {
 	return result + strings.Repeat("0", 4-len(result))
 }
 
-func DifferenceSoundex(word1, word2 string) int {
-	sum := differenceSoundex(word1, word2) + differenceSoundex(word2, word1)
+func SoundexDiff(word1, word2 string) int {
+	sum := calcSoundexDiff(word1, word2) + calcSoundexDiff(word2, word1)
 	if sum == 0 {
 		return 0
 	}
 	return sum / 2
 }
 
-func differenceSoundex(word1, word2 string) int {
+func calcSoundexDiff(word1, word2 string) int {
 	soundex1 := EncodeSoundex(word1)
 	soundex2 := EncodeSoundex(word2)
 	if soundex1 == soundex2 {
