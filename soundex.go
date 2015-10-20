@@ -49,6 +49,10 @@ func SoundexDiff(word1, word2 string) int {
 func calcSoundexDiff(word1, word2 string) int {
 	soundex1 := EncodeSoundex(word1)
 	soundex2 := EncodeSoundex(word2)
+	return EncodedSoundexDiff(soundex1, soundex2)
+}
+
+func EncodedSoundexDiff(soundex1, soundex2 string) int {
 	if soundex1 == soundex2 {
 		return 100
 	}
